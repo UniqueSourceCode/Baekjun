@@ -10,15 +10,11 @@ int main() {
     for (int i = 1; i < n; ++i) {
         int min_val = 1000000;
         if ((i+1) % 6 == 0) {
-            min_val = min(min_val, arr[i/3] + 1);
-            min_val = min(min_val, arr[i/2] + 1);
-            min_val = min(min_val, arr[i-1] + 1);
+            min_val = 1 + min(min(arr[i/3], arr[i/2]), arr[i-1]);
         } else if ((i+1) % 3 == 0) {
-            min_val = min(min_val, arr[i/3] + 1);
-            min_val = min(min_val, arr[i-1] + 1);
+            min_val = 1 + min(arr[i/3], arr[i-1]);
         } else if ((i+1) % 2 == 0) {
-            min_val = min(min_val, arr[i/2] + 1);
-            min_val = min(min_val, arr[i-1] + 1);
+            min_val = 1 + min(arr[i/2], arr[i-1]);
         } else {
             min_val = arr[i-1] + 1;
         }
