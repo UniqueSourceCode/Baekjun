@@ -29,6 +29,8 @@ int main() {
 
         vector<int> dist(N+1, 0);
 
+
+        //Connect all nodes to a dummy node
         for (int i = 1; i < N+1; ++i) {
             edges[0].push_back({i, 0});
         }
