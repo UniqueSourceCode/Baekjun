@@ -18,6 +18,7 @@ int main() {
     }
     const int INF = 1e9;
     vector<int> distance(V+1, INF);
+    vector<bool> visited(V+1, false);
     priority_queue<pair<int,int>, vector<pair<int,int>>, greater<>> dijkstra;
     distance[K] = 0;
     dijkstra.push({0, K});
@@ -26,7 +27,8 @@ int main() {
         auto [dist, curr] = dijkstra.top();
         dijkstra.pop();
 
-        if (distance[curr] < dist) continue;
+        if (visited[curr]) continue;
+        visited[curr] = true;
 
         for (auto [v, w] : edges[curr]) {
             if (distance[v] > distance[curr] + w) {
