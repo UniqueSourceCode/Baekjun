@@ -20,7 +20,7 @@ int main() {
         edges[v].push_back({u, w});;
     }
 
-    priority_queue<pair<int, int>> pq;
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
     vector<int> dist(N+1, 1e9);
     dist[1] = 0;
     pq.push({dist[1], 1});
